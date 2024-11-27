@@ -10,6 +10,9 @@ export default {
       spacing: {
         "padding-default": "20px",
       },
+      padding: {
+        'custom': '0',
+      },
       container: {
         center: true,
         padding: "20px",
@@ -17,6 +20,7 @@ export default {
       colors: {
         primary: {
           40: "#A3A3A8",
+          60: "#76767C",
           70: "#5F5F67",
           100: "#1A1A25",
         },
@@ -28,8 +32,12 @@ export default {
       },
       fontSize: {
         title1: ["20px", "160%"],
-        body7: ["16px", "162.5%"],
+        headline1: ["24px", "141.667%"],
         body6: ["16px", "162.5%"],
+        body7: ["16px", "162.5%"],
+        body8: ["14px", "162.5%"],
+        body9: ["14px", "157.143%"],
+        button3: ["12px", "166.667%"],
         caption4: ["12px", "166.667%"],
       },
       fontWeight: {
