@@ -19,17 +19,20 @@ const router = createBrowserRouter([
         path: routes.signUp,
         element: <SignUpPage />,
       },
-      {
-        path: routes.main,
-        element: <HomePage />,
-      },
+      // {
+      //   path: routes.Home,
+      //   element: <HomePage />,
+      // },
       {
         path: routes.ProgramFinder,
         element: <ProgramFinder />,
       },
-      //
+      {
+        path: routes.ProgramInfo,
+        element: <ProgramInfo />,
+      },
     ],
   },
 ]);
-
+//
 export default router;
