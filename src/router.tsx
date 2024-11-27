@@ -20,10 +20,10 @@ const router = createBrowserRouter([
         path: routes.signUp,
         element: <SignUpPage />,
       },
-      {
-        path: routes.Home,
-        element: <HomePage />,
-      },
+      // {
+      //   path: routes.Home,
+      //   element: <HomePage />,
+      // },
       {
         path: routes.ProgramFinder,
         element: <ProgramFinder />,
