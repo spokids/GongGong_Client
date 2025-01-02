@@ -4,19 +4,23 @@ import Button from "@components/Button";
 import { useParams } from "react-router-dom";
 import usePostScrap from "@api/hooks/program/usePostScrab";
 import useDeleteScrab from "@api/hooks/program/useDeleteScrab";
-import {useGetScrap} from "@api/hooks/user/useGetScrp";
+import {useGetScrap} from "@api/hooks/user/useGetScrap";
 const InfoTab = () => {
   const { programId } = useParams<{ programId: string }>();
   const [isScrabbed, setIsScrabbed] = useState(false);
-  const { data: scrapStatus, isLoading, isError } = useGetScrap(Number(programId));
+  const { data } = useGetScrap(0);
   const { mutate: handlePostScrap } = usePostScrap();
   const { mutate: handleDeleteScrap } = useDeleteScrab();
 
   useEffect(() => {
-    if (scrapStatus !== undefined) {
-      setIsScrabbed(Boolean(scrapStatus));
+    if (data?.scraps) {
+      const isScrabbedProgram = data.scraps.some(
+        (scrap) => scrap.programId === Number(programId)
+      );
+      setIsScrabbed(isScrabbedProgram);
     }
-  }, [scrapStatus]);
+  }, [data?.scraps, programId]);
+  
 
   const handleScrabClick = () => {
     if (!programId) return;
@@ -32,7 +36,6 @@ const InfoTab = () => {
         onError: () => setIsScrabbed(false),
       });
     }
-    console.log(scrapStatus);
   };
 
   return (
@@ -43,7 +46,7 @@ const InfoTab = () => {
             isScrabbed ? "bg-orange-50" : "bg-primary-5"
           }`}
           onClick={handleScrabClick}
-          disabled={isLoading || isError}
+          // disabled={isLoading || isError}
         >
           <ScrabIcon className={isScrabbed ? "text-orange-400" : "text-primary-60"} />
         </Button>

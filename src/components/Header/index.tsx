@@ -41,6 +41,9 @@ const Header = () => {
     }  else if (location.pathname === "/my-page") {
       title = "마이페이지";
       iconNeeded = false;
+    } else if (location.pathname === "/program-finder") {
+      title = "맞는 프로그램 찾기";
+      iconNeeded = false;
     }
 
     return { title, needUserIcon: iconNeeded };
@@ -57,6 +60,7 @@ const Header = () => {
 
   return (
     <header className="flex items-center justify-center px-4 py-[10px] top-0 h-[55px]">
+      
       <h1
         className={`text-title1 font-bold flex-1 ${
           needUserIcon ? '' : 'text-center'
