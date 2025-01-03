@@ -1,4 +1,4 @@
-import { useGetScrap } from '@api/hooks/user/useGetScrp';
+import { useGetScrap } from '@api/hooks/user/useGetScrap';
 import { Scraps } from '@api/types/user';
 import LessonInfo from '@pages/HomePage/LessonInfo';
 import { useEffect, useState } from 'react';

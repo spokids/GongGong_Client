@@ -107,7 +107,7 @@ import Pagination from './Pagenation';
         {selectedFields.map((field, index) => (
           <div key={index} className="relative flex flex-col justify-end">
             <div className="relative flex flex-col justify-end">
-              <div className="absolute inset-0 z-0 flex items-center w-8 h-8" style={{ marginTop: `${19 + index * 2}px`, marginLeft: `${20 + index * 3}px` }}>
+              <div className="absolute inset-0 z-0 flex items-center w-8 h-8" style={{ marginTop: `${21 + index * 2}px`, marginLeft: `${21 + index * 3}px`, color: "#484851" }}>
                 {field.icon}
               </div>
             </div>
@@ -156,12 +156,15 @@ import Pagination from './Pagenation';
       </div>
 
       {totalPages && (
-        <Pagination
-          currentPage={currentPage}
-          totalPages={totalPages}
-          onPageChange={handlePageChange}
-        />
+        <div className="mb-[80px]">
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={handlePageChange}
+          />
+        </div>
       )}
+
     </div>
   );
 };
