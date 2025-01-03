@@ -46,7 +46,6 @@ const InfoTab = () => {
             isScrabbed ? "bg-orange-50" : "bg-primary-5"
           }`}
           onClick={handleScrabClick}
-          // disabled={isLoading || isError}
         >
           <ScrabIcon className={isScrabbed ? "text-orange-400" : "text-primary-60"} />
         </Button>

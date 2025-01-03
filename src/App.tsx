@@ -24,11 +24,13 @@ const App: React.FC = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <ChakraProvider value={defaultSystem}>
-        <div className="mx-auto flex h-[100vh] min-w-[390px] max-w-[410px] flex-col pt-[54px]">
-          {!showHeader && <Header /> }
+      <div className="relative flex flex-col h-[100vh] min-w-[390px] max-w-[410px] mx-auto">
+        {!showHeader && <Header />}
+        <div className="flex-1 overflow-auto">
           <Outlet />
-          {showTabBar && <TabBar />} 
         </div>
+        {showTabBar && <div className="fixed bottom-0 w-full max-w-[410px] mx-auto"><TabBar /></div>}
+      </div>
       </ChakraProvider>
     </QueryClientProvider>
   );
