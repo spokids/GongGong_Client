@@ -17,6 +17,7 @@ const InfoTab = () => {
       const isScrabbedProgram = data.scraps.some(
         (scrap) => scrap.programId === Number(programId)
       );
+      console.log("스크랩여부", isScrabbedProgram);
       setIsScrabbed(isScrabbedProgram);
     }
   }, [data?.scraps, programId]);
@@ -30,12 +31,15 @@ const InfoTab = () => {
         onSuccess: () => setIsScrabbed(false),
         onError: () => setIsScrabbed(true),
       });
+      console.log("delete");
     } else {
       handlePostScrap(Number(programId), {
         onSuccess: () => setIsScrabbed(true),
         onError: () => setIsScrabbed(false),
       });
+      console.log("success");
     }
+    console.log(data);
   };
 
   return (
@@ -46,6 +50,7 @@ const InfoTab = () => {
             isScrabbed ? "bg-orange-50" : "bg-primary-5"
           }`}
           onClick={handleScrabClick}
+          // disabled={isLoading || isError}
         >
           <ScrabIcon className={isScrabbed ? "text-orange-400" : "text-primary-60"} />
         </Button>
